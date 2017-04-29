@@ -1,21 +1,21 @@
-const api_url = 'http://localhost:3000/api/';
+const apiUrl = 'http://localhost:3000/api/';
 
-const json_token_header = (token) => (new Headers({
+const jsonTokenHeader = (token) => (new Headers({
     'Content-Type': 'application/json',
     'Authorization': `Token ${token}`
   })
 );
 
-const _to_api = function(url, method, payload, token) {
-  return fetch(api_url + url, {
+const _toApi = function(url, method, payload, token) {
+  return fetch(apiUrl + url, {
     method: method,
-    headers: json_token_header(token),
+    headers: jsonTokenHeader(token),
     body: JSON.stringify(payload)
   })
   .then(res => res.json());
 }
 
-// Payload should be a POJO, with all attributes nested
+// payload should be a POJO, with all attributes nested
 // under the name of the model that is being requested/
 // modified/deleted.
 // payload = {
@@ -24,21 +24,21 @@ const _to_api = function(url, method, payload, token) {
 //     password: '********'
 //   }
 // }
-// *_to_api() will return a promise object with a json-
+// *_toApi() will return a promise object with a json-
 // formatted PromiseValue.
 
-export const post_to_api = function(url, payload, token) {
-  return _to_api(url, 'POST', payload, token);
+export const postToApi = function(url, payload, token) {
+  return _toApi(url, 'POST', payload, token);
 };
 
-export const patch_to_api = function(url, payload, token) {
-  return _to_api(url, 'PATCH', payload, token);
+export const patchToApi = function(url, payload, token) {
+  return _toApi(url, 'PATCH', payload, token);
 };
 
-export const delete_to_api = function(url, payload, token) {
-  return _to_api(url, 'DELETE', payload, token);
+export const deleteToApi = function(url, payload, token) {
+  return _toApi(url, 'DELETE', payload, token);
 };
 
-export const get_to_api = function(url, token) {
-  return _to_api(url, 'GET', null, token);
+export const getToApi = function(url, token) {
+  return _toApi(url, 'GET', null, token);
 };

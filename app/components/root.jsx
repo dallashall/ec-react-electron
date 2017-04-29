@@ -1,21 +1,24 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+// MemoryRouter for Electron; NativeRouter for React-Native
 import { 
-  BrowserRouter as Router,
+  MemoryRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
-import Test from './test/test';
+import sign_in_container from './session/sign_in_container';
 // import containers
-
-const root = () => {
+const root = ({store}) => {
   return (
-    <Router>
-      <div>
-        <h1>EC-Electron</h1>
-        <Route exact path="/" component={Test} />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div>
+          <h1>EC-Electron</h1>
+          <Link to='sign_in'>Sign In Page</Link>
+          <Route exact path="/sign_in" component={sign_in_container} />
+        </div>
+      </Router>
+    </Provider>
   )
 }
 

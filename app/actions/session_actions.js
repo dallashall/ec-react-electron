@@ -1,32 +1,30 @@
 import {
-  delete_to_api,
-  get_to_api,
-  patch_to_api,
-  post_to_api
+  deleteToApi,
+  postToApi
 } from '../util/api_helpers';
 
 export const RECEIVE_SESSION = "RECEIVE_SESSION";
 export const REMOVE_SESSION = "REMOVE_SESSION";
 
-const receive_session = (session) => ({
+const receiveSession = (session) => ({
   type: RECEIVE_SESSION,
   session
 });
 
-const remove_session = () => ({
+const removeSession = () => ({
   type: REMOVE_SESSION
 });
 
-export const log_in = (user) => (dispatch) => {
-  return post_to_api('sign_in', user)
+export const logIn = (user) => (dispatch) => {
+  return postToApi('sign_in', user)
     .then(
-      session => dispatch(receive_session(session))
+      session => dispatch(receiveSession(session))
     )
 };
 
-export const log_out = () => (dispatch) => {
-  return delete_to_api('sign_out')
+export const logOut = () => (dispatch) => {
+  return deleteToApi('sign_out')
     .then(
-      () => dispatch(remove_session())
+      () => dispatch(removeSession())
     )
 };
