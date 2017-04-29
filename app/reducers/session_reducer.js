@@ -16,7 +16,7 @@ const _initial_state = {
   }
 }
 
-export default SessionReducer = (state = _initial_state, action) => {
+const SessionReducer = (state = _initial_state, action) => {
   Object.freeze(state);
   let nextState = merge ({}, state);
   switch (action.type) {
@@ -29,3 +29,5 @@ export default SessionReducer = (state = _initial_state, action) => {
       return state;
   }
 }
+
+export default SessionReducer;

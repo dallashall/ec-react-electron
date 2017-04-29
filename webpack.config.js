@@ -4,8 +4,8 @@ module.exports = {
   context: __dirname + "/app",
   entry: "./ec_entry.js",
   output: {
-    path: __dirname,
-    filename: "bundle.js"
+    path: __dirname + "/production",
+    filename: "ec_bundle.js"
   },
   resolve: {
     extensions: ['.js', '.jsx', '*']

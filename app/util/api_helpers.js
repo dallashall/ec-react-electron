@@ -1,14 +1,15 @@
 const api_url = 'http://localhost:3000/api/';
 
-const json_token_header = new Headers({
-  'Content-Type': 'application/json',
-  'Authorization': `Token ${token}`
-});
+const json_token_header = (token) => (new Headers({
+    'Content-Type': 'application/json',
+    'Authorization': `Token ${token}`
+  })
+);
 
 const _to_api = function(url, method, payload, token) {
   return fetch(api_url + url, {
     method: method,
-    headers: json_token_header,
+    headers: json_token_header(token),
     body: JSON.stringify(payload)
   })
   .then(res => res.json());
