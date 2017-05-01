@@ -1,0 +1,21 @@
+html,
+body,
+ul,
+ol,
+div,
+li,
+header,
+footer,
+main,
+form,
+input,
+aside {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+}
+input:focus {
+  outline: none;
+}

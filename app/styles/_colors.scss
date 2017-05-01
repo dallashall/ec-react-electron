@@ -1,0 +1,31 @@
+$darkest: rgb(32,39,41);
+$darker: rgb(50, 58, 61);
+$dark: rgb(76, 87, 92);
+$light: rgb(243, 245, 248);
+$accent: rgb(0,171,230);
+$blank: rgb(255,255,255);
+
+.bg-darkest {
+  background-color: $darkest;
+  color: $light;
+}
+.bg-darker {
+  background-color: $darker;
+  color: $light;
+}
+.bg-dark {
+  background-color: $dark;
+  color: $blank;
+}
+.bg-light {
+  background-color: $light;
+  color: $darkest;
+}
+.bg-accent {
+  background-color: $accent;
+  color: $blank;
+}
+.bg-blank {
+  background-color: $blank;
+  color: black;
+}
